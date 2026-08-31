@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales - Hardware Management System</title>
+
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/products">Products</a></li>
+            <li><a href="/suppliers">Suppliers</a></li>
+            <li><a href="/employees">Employees</a></li>
+            <li><a href="/sales">Sales</a></li>
+            <li><a href="/customers">Customers</a></li>
+        </ul>
+    </nav>
+    <h1>Sales Transactions</h1>
+
+  <div>
+    <h2>Record New Sale</h2>
+    <form action="/add-sale" method="POST">
+      <input type="number" name="salesid" placeholder="Sale ID" required>
+      <input type="date" name="salesdate" required>
+      <input type="number" name="quantitysold" placeholder="Quantity Sold" min="1" required>
+      <input type="number" name="product_id" placeholder="Product ID" required>
+      <input type="number" name="customers_id" placeholder="Customer ID" required>
+      <button type="submit">Record Sale</button>
+    </form>
+  </div>
+
+
+  <table>
+    <thead>
+      <tr>
+        <th>Sale ID</th>
+        <th>Date</th>
+        <th>Product Name</th>
+        <th>Customer Name</th>
+        <th>Quantity Sold</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if (sales && sales.length > 0) { %>
+        <% sales.forEach(function(sale) { %>
+          <tr>
+            <td><%= sale.salesid %></td>
+            <td><%= sale.salesdate ? new Date(sale.salesdate).toISOString().split('T')[0] : '' %></td>
+            <td><%= sale.productname || 'ID: ' + sale.product_id %></td>
+            <td><%= sale.customer_name || 'ID: ' + sale.customers_id %></td>
+            <td><%= sale.quantitysold %></td>
+          </tr>
+        <% }); %>
+      <% } else { %>
+        <tr>
+          <td colspan="5">No sales transactions recorded.</td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
+
+</body>
+</html>

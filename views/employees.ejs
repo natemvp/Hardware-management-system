@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employees - Hardware Management System</title>
+
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/products">Products</a></li>
+            <li><a href="/suppliers">Suppliers</a></li>
+            <li><a href="/employees">Employees</a></li>
+            <li><a href="/sales">Sales</a></li>
+            <li><a href="/customers">Customers</a></li>
+        </ul>
+    </nav>
+    <h1>Employees Directory</h1>
+
+
+  <div>
+    <h2>Add New Employee</h2>
+    <form action="/add-employee" method="POST">
+      <input type="number" name="EmployeeID" placeholder="Employee ID" required>
+      <input type="text" name="FirstName" placeholder="First Name" required>
+      <input type="text" name="PhoneNumber" placeholder="Phone Number" required>
+      <input type="text" name="Position" placeholder="Position" required>
+      <button type="submit">Add Employee</button>
+    </form>
+  </div>
+
+
+  <table>
+    <thead>
+      <tr>
+        <th>Employee ID</th>
+        <th>First Name</th>
+        <th>Phone Number</th>
+        <th>Position</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if (employees && employees.length > 0) { %>
+        <% employees.forEach(function(emp) { %>
+          <tr>
+            <td><%= emp.EmployeeID %></td>
+            <td><%= emp.FirstName %></td>
+            <td><%= emp.PhoneNumber %></td>
+            <td><%= emp.Position %></td>
+          </tr>
+        <% }); %>
+      <% } else { %>
+        <tr>
+          <td colspan="4">No employees found.</td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
+
+</body>
+</html>
+    

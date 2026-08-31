@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suppliers - Hardware Management System</title>
+
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/products">Products</a></li>
+            <li><a href="/suppliers">Suppliers</a></li>
+            <li><a href="/employees">Employees</a></li>
+            <li><a href="/sales">Sales</a></li>
+            <li><a href="/customers">Customers</a></li>
+        </ul>
+    </nav>
+    <h1>Suppliers Directory</h1>
+
+  <div>
+    <h2>Add New Supplier</h2>
+    <form action="/add-supplier" method="POST">
+      <input type="number" name="SupplierID" placeholder="Supplier ID" required>
+      <input type="text" name="SupplierName" placeholder="Supplier Name" required>
+      <input type="text" name="PhoneNumber" placeholder="Phone Number" required>
+      <input type="text" name="Address" placeholder="Address" required>
+      <button type="submit">Add Supplier</button>
+    </form>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Supplier ID</th>
+        <th>Supplier Name</th>
+        <th>Phone Number</th>
+        <th>Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if (suppliers && suppliers.length > 0) { %>
+        <% suppliers.forEach(function(sup) { %>
+          <tr>
+            <td><%= sup.SupplierID %></td>
+            <td><%= sup.SupplierName %></td>
+            <td><%= sup.PhoneNumber %></td>
+            <td><%= sup.Address %></td>
+          </tr>
+        <% }); %>
+      <% } else { %>
+        <tr>
+          <td colspan="4">No suppliers found.</td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
+
+</body>
+</html>
+    

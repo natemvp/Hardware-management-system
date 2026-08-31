@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customers - Hardware Management System</title>
+
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/products">Products</a></li>
+            <li><a href="/suppliers">Suppliers</a></li>
+            <li><a href="/employees">Employees</a></li>
+            <li><a href="/sales">Sales</a></li>
+            <li><a href="/customers">Customers</a></li>
+        </ul>
+    </nav>
+    <h1>Customers Directory</h1>
+
+  <div>
+    <h2>Add New Customer</h2>
+    <form action="/add-customer" method="POST">
+      <input type="number" name="customers_id" placeholder="Customer ID" required>
+      <input type="text" name="customer_name" placeholder="Customer Name" required>
+      <input type="text" name="contact" placeholder="Contact (Phone)" required>
+      <input type="text" name="address" placeholder="Address" required>
+      <button type="submit">Add Customer</button>
+    </form>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Customer ID</th>
+        <th>Customer Name</th>
+        <th>Contact</th>
+        <th>Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if (customers && customers.length > 0) { %>
+        <% customers.forEach(function(cust) { %>
+          <tr>
+            <td><%= cust.customers_id %></td>
+            <td><%= cust.customer_name %></td>
+            <td><%= cust.contact %></td>
+            <td><%= cust.address %></td>
+          </tr>
+        <% }); %>
+      <% } else { %>
+        <tr>
+          <td colspan="4">No customers found.</td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
+
+</body>
+</html>
