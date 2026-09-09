@@ -1,36 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products - Hardware Management System</title>
+<%- include('partials/header', {
+    title: 'Products | Hardware Hub',
+    description: 'Manage your hardware products and inventory.',
+    activePage: 'products'
+}) %>
+<main class="page-shell">
+      <div class="page-heading"><span class="eyebrow">Inventory</span><h1>Product Inventory</h1><p>Keep your catalogue and stock levels up to date.</p></div>
 
-</head>
-<body>
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/products">Products</a></li>
-            <li><a href="/suppliers">Suppliers</a></li>
-            <li><a href="/employees">Employees</a></li>
-            <li><a href="/sales">Sales</a></li>
-            <li><a href="/customers">Customers</a></li>
-        </ul>
-    </nav>
-    <h1>Product Inventory</h1>
-
-  <div>
+  <div class="panel">
     <h2>Add New Product</h2>
     <form action="/add-product" method="POST">
       <input type="number" name="product_id" placeholder="Product ID" required>
       <input type="text" name="productname" placeholder="Product Name" required>
       <input type="number" name="unitprice" placeholder="Unit Price" step="1" required>
       <input type="number" name="stockquantity" placeholder="Stock Quantity" required>
-      <button type="submit">Add Product</button>
+      <button class="button" type="submit">Add Product</button>
     </form>
   </div>
 
-  <table>
+  <div class="table-wrap"><table>
     <thead>
       <tr>
         <th>Product ID</th>
@@ -51,12 +38,12 @@
         <% }); %>
       <% } else { %>
         <tr>
-          <td colspan="4">No products found.</td>
+          <td class="empty-state" colspan="4">No products found.</td>
         </tr>
       <% } %>
     </tbody>
-  </table>
+  </table></div>
+  </main>
 
-</body>
-</html>
+<%- include('partials/footer') %>
     

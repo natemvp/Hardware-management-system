@@ -1,25 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sales - Hardware Management System</title>
+<%- include('partials/header', { title: 'Sales | Hardware Hub', activePage: 'sales' }) %>
+    <main class="page-shell">
+    <div class="page-heading"><span class="eyebrow">Revenue</span><h1>Sales Transactions</h1><p>Record each sale and keep your revenue history clear.</p></div>
 
-</head>
-<body>
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/products">Products</a></li>
-            <li><a href="/suppliers">Suppliers</a></li>
-            <li><a href="/employees">Employees</a></li>
-            <li><a href="/sales">Sales</a></li>
-            <li><a href="/customers">Customers</a></li>
-        </ul>
-    </nav>
-    <h1>Sales Transactions</h1>
-
-  <div>
+  <div class="panel">
     <h2>Record New Sale</h2>
     <form action="/add-sale" method="POST">
       <input type="number" name="salesid" placeholder="Sale ID" required>
@@ -27,12 +10,12 @@
       <input type="number" name="quantitysold" placeholder="Quantity Sold" min="1" required>
       <input type="number" name="product_id" placeholder="Product ID" required>
       <input type="number" name="customers_id" placeholder="Customer ID" required>
-      <button type="submit">Record Sale</button>
+      <button class="button" type="submit">Record Sale</button>
     </form>
   </div>
 
 
-  <table>
+  <div class="table-wrap"><table>
     <thead>
       <tr>
         <th>Sale ID</th>
@@ -55,11 +38,11 @@
         <% }); %>
       <% } else { %>
         <tr>
-          <td colspan="5">No sales transactions recorded.</td>
+          <td class="empty-state" colspan="5">No sales transactions recorded.</td>
         </tr>
       <% } %>
     </tbody>
-  </table>
+  </table></div>
+  </main>
 
-</body>
-</html>
+<%- include('partials/footer') %>

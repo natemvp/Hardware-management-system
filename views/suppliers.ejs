@@ -1,36 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Suppliers - Hardware Management System</title>
+<%- include('partials/header', { title: 'Suppliers | Hardware Hub', activePage: 'suppliers' }) %>
+    <main class="page-shell">
+    <div class="page-heading"><span class="eyebrow">Supply chain</span><h1>Suppliers Directory</h1><p>Make supplier details easy to find when you need them.</p></div>
 
-</head>
-<body>
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/products">Products</a></li>
-            <li><a href="/suppliers">Suppliers</a></li>
-            <li><a href="/employees">Employees</a></li>
-            <li><a href="/sales">Sales</a></li>
-            <li><a href="/customers">Customers</a></li>
-        </ul>
-    </nav>
-    <h1>Suppliers Directory</h1>
-
-  <div>
+  <div class="panel">
     <h2>Add New Supplier</h2>
     <form action="/add-supplier" method="POST">
       <input type="number" name="SupplierID" placeholder="Supplier ID" required>
       <input type="text" name="SupplierName" placeholder="Supplier Name" required>
       <input type="text" name="PhoneNumber" placeholder="Phone Number" required>
       <input type="text" name="Address" placeholder="Address" required>
-      <button type="submit">Add Supplier</button>
+      <button class="button" type="submit">Add Supplier</button>
     </form>
   </div>
 
-  <table>
+  <div class="table-wrap"><table>
     <thead>
       <tr>
         <th>Supplier ID</th>
@@ -51,12 +34,12 @@
         <% }); %>
       <% } else { %>
         <tr>
-          <td colspan="4">No suppliers found.</td>
+          <td class="empty-state" colspan="4">No suppliers found.</td>
         </tr>
       <% } %>
     </tbody>
-  </table>
+  </table></div>
+  </main>
 
-</body>
-</html>
+<%- include('partials/footer') %>
     

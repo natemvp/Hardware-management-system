@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="<%= typeof description !== 'undefined' ? description : 'Hardware Hub helps hardware businesses manage stocks, sales, suppliers, employees, and products.' %>">
+    <title><%= title || 'Hardware Hub' %></title>
+    <link rel="stylesheet" href="/main.css">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="site-nav" aria-label="Main navigation">
+            <a class="brand" href="/">
+                <span class="brand-mark">HH</span>
+                <span class="brand-name">Hardware Hub</span>
+            </a>
+            <% if (activePage === 'dashboard') { %>
+                <ul class="nav-links">
+                    <li><a href="/dashboard" aria-current="page">Dashboard</a></li>
+                    <li><a href="/products">Products</a></li>
+                    <li><a href="/sales">Sales</a></li>
+                    <li><a href="/suppliers">Suppliers</a></li>
+                    <li><a href="/employees">Employees</a></li>
+                    <li><a href="/customers">Customers</a></li>
+                </ul>
+            <% } %>
+            <div class="nav-actions">
+                <a class="nav-login" href="/login">Log in</a>
+                <a class="button button-small" href="/contact">Contact us</a>
+            </div>
+        </nav>
+    </header>

@@ -1,36 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customers - Hardware Management System</title>
+<%- include('partials/header', { title: 'Customers | Hardware Hub', activePage: 'customers' }) %>
+    <main class="page-shell">
+    <div class="page-heading"><span class="eyebrow">Relationships</span><h1>Customers Directory</h1><p>Keep customer details close to every sale.</p></div>
 
-</head>
-<body>
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/products">Products</a></li>
-            <li><a href="/suppliers">Suppliers</a></li>
-            <li><a href="/employees">Employees</a></li>
-            <li><a href="/sales">Sales</a></li>
-            <li><a href="/customers">Customers</a></li>
-        </ul>
-    </nav>
-    <h1>Customers Directory</h1>
-
-  <div>
+  <div class="panel">
     <h2>Add New Customer</h2>
     <form action="/add-customer" method="POST">
       <input type="number" name="customers_id" placeholder="Customer ID" required>
       <input type="text" name="customer_name" placeholder="Customer Name" required>
       <input type="text" name="contact" placeholder="Contact (Phone)" required>
       <input type="text" name="address" placeholder="Address" required>
-      <button type="submit">Add Customer</button>
+      <button class="button" type="submit">Add Customer</button>
     </form>
   </div>
 
-  <table>
+  <div class="table-wrap"><table>
     <thead>
       <tr>
         <th>Customer ID</th>
@@ -51,11 +34,11 @@
         <% }); %>
       <% } else { %>
         <tr>
-          <td colspan="4">No customers found.</td>
+          <td class="empty-state" colspan="4">No customers found.</td>
         </tr>
       <% } %>
     </tbody>
-  </table>
+  </table></div>
+  </main>
 
-</body>
-</html>
+<%- include('partials/footer') %>

@@ -1,0 +1,20 @@
+<%- include('partials/header', { title: 'Log in | Hardware Hub', description: 'Log in to your Hardware Hub management system.', activePage: 'login' }) %>
+
+<main class="auth-page">
+    <section class="auth-card">
+        <span class="eyebrow">Welcome back</span>
+        <h1>Log in to your hardware</h1>
+        <p class="muted">Access your stocks, sales, suppliers, employees, and products.</p>
+        <% if (error) { %><p class="form-error" role="alert"><%= error %></p><% } %>
+        <form action="/login" method="POST" class="auth-form">
+            <label for="email">Email address</label>
+            <input id="email" type="email" name="email" autocomplete="email" placeholder="you@example.com" required>
+            <label for="password">Password</label>
+            <input id="password" type="password" name="password" autocomplete="current-password" placeholder="Enter your password" required>
+            <button class="button" type="submit">Log in</button>
+        </form>
+        <p class="auth-help">Need access? <a class="text-link" href="/contact">Contact us</a></p>
+    </section>
+</main>
+
+<%- include('partials/footer') %>

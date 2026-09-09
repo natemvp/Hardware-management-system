@@ -1,23 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hardware Management System</title>
-</head>
-<body>
-    <nav>
-        <ul>
-            <!-- FIX: Changed /index to / -->
-            <li><a href="/">Home</a></li>
-            <li><a href="/products">Products</a></li>
-            <li><a href="/suppliers">Suppliers</a></li>
-            <li><a href="/employees">Employees</a></li>
-            <li><a href="/sales">Sales</a></li>
-            <li><a href="/customers">Customers</a></li>
-        </ul>
-    </nav>
+<%- include('partials/header', { title: 'Hardware Hub | Manage your hardware business', description: 'Hardware Hub helps hardware businesses manage stocks, sales, suppliers, employees, and products.', activePage: 'home' }) %>
 
-    <h1>Welcome to the Hardware Management System</h1>
-</body>
-</html>
+<main>
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="hero-content">
+                <span class="eyebrow">Hardware management, made simple</span>
+                <h1>Everything your hardware business needs to stay in control.</h1>
+                <p class="hero-copy">Hardware Hub gives owners one clear place to manage stock, sales, suppliers, employees, and products. Spend less time searching and more time growing.</p>
+                <div class="hero-actions">
+                    <a class="button" href="/contact">Contact us</a>
+                    <a class="button button-secondary" href="/login">Log in to your hardware</a>
+                </div>
+                <div class="hero-proof">
+                    <span>Built for hardware retailers</span>
+                    <span>Clear records</span>
+                    <span>Faster decisions</span>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <img src="https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=1000&q=85" alt="Organized hardware tools in a workshop">
+                <div class="hero-stat">
+                    <strong>One connected workspace</strong>
+                    <span>Stock, sales, people, and suppliers in one view.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="solutions">
+        <div class="section-heading">
+            <div><span class="eyebrow">One system, every essential</span><h2>Run the whole operation with less effort</h2></div>
+            <p>Purpose-built tools help you keep daily work organized, accurate, and ready for the next customer.</p>
+        </div>
+        <div class="product-grid">
+            <article class="product-card">
+                <img src="https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?auto=format&fit=crop&w=800&q=85" alt="Hardware tools and supplies">
+                <div class="product-body"><span class="card-label">Inventory</span><h3>Know what is on your shelves</h3><p>Track products, prices, and quantities so you can replenish with confidence.</p><a href="/login" class="text-link">Access from dashboard <span aria-hidden="true">&rarr;</span></a></div>
+            </article>
+            <article class="product-card">
+                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=85" alt="Business owner handling a customer transaction">
+                <div class="product-body"><span class="card-label">Sales</span><h3>Turn every sale into insight</h3><p>Record transactions and connect sales to products and customers in seconds.</p><a href="/login" class="text-link">Access from dashboard <span aria-hidden="true">&rarr;</span></a></div>
+            </article>
+            <article class="product-card">
+                <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&w=800&q=85" alt="Business partners working together">
+                <div class="product-body"><span class="card-label">Relationships</span><h3>Keep your network close</h3><p>Find supplier, employee, and customer details when your team needs them.</p><a href="/login" class="text-link">Access from dashboard <span aria-hidden="true">&rarr;</span></a></div>
+            </article>
+        </div>
+    </section>
+
+    <section class="section section-light">
+        <div class="split-section">
+            <div class="split-image"><img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1000&q=85" alt="Team collaborating around a table"></div>
+            <div class="split-copy"><span class="eyebrow">Designed for owners and teams</span><h2>Make every working day more organized.</h2><p>From the first stock count to the final sale of the day, Hardware Hub keeps your records connected. Give your team a reliable workflow and give yourself the clarity to make better decisions.</p><ul class="check-list"><li>Centralized product and stock records</li><li>Simple sales and customer tracking</li><li>Dedicated supplier and employee directories</li></ul><a class="button" href="/contact">Talk to our team</a></div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div><span class="eyebrow">Ready to simplify your operation?</span><h2>Put your hardware business in one clear view.</h2><p>See how Hardware Hub can support Matunda Hardware and your team.</p></div>
+        <div class="hero-actions"><a class="button" href="/contact">Contact us</a><a class="button button-secondary" href="/login">Log in to your hardware</a></div>
+    </section>
+</main>
+
+<%- include('partials/footer') %>

@@ -30,6 +30,30 @@ app.get("/", (req, res) => {
     res.render("index");
 });
 
+app.get("/contact", (req, res) => {
+    res.render("contact");
+});
+
+app.get("/login", (req, res) => {
+    res.render("login", { error: null });
+});
+
+app.post("/login", (req, res) => {
+    const { email, password } = req.body;
+
+    if (!email || !password) {
+        res.status(400).render("login", {
+            error: "Enter your email address and password to continue."
+        });
+        return;
+    }
+
+    res.render("dashboard", { userEmail: email });
+});
+
+app.get("/dashboard", (req, res) => {
+    res.render("dashboard", { userEmail: "Hardware Hub owner" });
+});
 
 
 app.get("/products", (req, res) => {

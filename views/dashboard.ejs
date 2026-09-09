@@ -1,0 +1,66 @@
+<%- include('partials/header', { title: 'Dashboard | Hardware Hub', description: 'Hardware Hub business management dashboard.', activePage: 'dashboard' }) %>
+
+<main class="dashboard-shell">
+    <section class="dashboard-welcome">
+        <div>
+            <span class="eyebrow">Your workspace</span>
+            <h1>Welcome to your dashboard</h1>
+            <p class="muted">A clear view of the work that keeps your hardware business moving.</p>
+        </div>
+        <a class="button button-secondary" href="/contact">Get support</a>
+    </section>
+
+    <section class="dashboard-grid" aria-label="Business overview">
+        <article class="dashboard-card dashboard-card-primary">
+            <span class="dashboard-card-label">Workspace</span>
+            <strong>Hardware Hub</strong>
+            <p>Manage your operation from one connected place.</p>
+            <a class="text-link" href="/products">Open inventory <span aria-hidden="true">&rarr;</span></a>
+        </article>
+        <article class="dashboard-card">
+            <span class="dashboard-card-label">Products</span>
+            <strong>Inventory centre</strong>
+            <p>Add products, update stock quantities, and review your catalogue.</p>
+            <a class="text-link" href="/products">Manage products <span aria-hidden="true">&rarr;</span></a>
+        </article>
+        <article class="dashboard-card">
+            <span class="dashboard-card-label">Sales</span>
+            <strong>Transaction centre</strong>
+            <p>Record sales and keep customer and product details connected.</p>
+            <a class="text-link" href="/sales">View sales <span aria-hidden="true">&rarr;</span></a>
+        </article>
+        <article class="dashboard-card">
+            <span class="dashboard-card-label">Suppliers</span>
+            <strong>Supply centre</strong>
+            <p>Maintain supplier contacts and keep your supply chain organized.</p>
+            <a class="text-link" href="/suppliers">Manage suppliers <span aria-hidden="true">&rarr;</span></a>
+        </article>
+        <article class="dashboard-card">
+            <span class="dashboard-card-label">People</span>
+            <strong>Team and customers</strong>
+            <p>Manage employee records and keep customer information current.</p>
+            <div class="dashboard-card-links"><a class="text-link" href="/employees">Employees <span aria-hidden="true">&rarr;</span></a><a class="text-link" href="/customers">Customers <span aria-hidden="true">&rarr;</span></a></div>
+        </article>
+    </section>
+
+    <section class="dashboard-section">
+        <div class="section-heading">
+            <div><span class="eyebrow">Quick actions</span><h2>Keep your business up to date</h2></div>
+            <p>Jump straight into the records you use most often.</p>
+        </div>
+        <div class="quick-action-grid">
+            <a class="quick-action" href="/products"><span class="quick-action-number">01</span><span><strong>Update inventory</strong><small>Manage products and stock levels</small></span><span class="quick-action-arrow" aria-hidden="true">&rarr;</span></a>
+            <a class="quick-action" href="/sales"><span class="quick-action-number">02</span><span><strong>Record a sale</strong><small>Add a new sales transaction</small></span><span class="quick-action-arrow" aria-hidden="true">&rarr;</span></a>
+            <a class="quick-action" href="/suppliers"><span class="quick-action-number">03</span><span><strong>Review suppliers</strong><small>Keep supply contacts organized</small></span><span class="quick-action-arrow" aria-hidden="true">&rarr;</span></a>
+            <a class="quick-action" href="/employees"><span class="quick-action-number">04</span><span><strong>Manage employees</strong><small>Keep your team directory current</small></span><span class="quick-action-arrow" aria-hidden="true">&rarr;</span></a>
+            <a class="quick-action" href="/customers"><span class="quick-action-number">05</span><span><strong>Review customers</strong><small>Keep customer details ready</small></span><span class="quick-action-arrow" aria-hidden="true">&rarr;</span></a>
+        </div>
+    </section>
+
+    <section class="dashboard-note">
+        <div><span class="eyebrow">Signed in as</span><strong><%= userEmail %></strong></div>
+        <a class="text-link" href="/contact">Need help with Hardware Hub? Contact us.</a>
+    </section>
+</main>
+
+<%- include('partials/footer') %>

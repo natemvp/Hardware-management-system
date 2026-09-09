@@ -1,38 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employees - Hardware Management System</title>
-
-</head>
-<body>
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/products">Products</a></li>
-            <li><a href="/suppliers">Suppliers</a></li>
-            <li><a href="/employees">Employees</a></li>
-            <li><a href="/sales">Sales</a></li>
-            <li><a href="/customers">Customers</a></li>
-        </ul>
-    </nav>
-    <h1>Employees Directory</h1>
+<%- include('partials/header', { title: 'Employees | Hardware Hub', activePage: 'employees' }) %>
+    <main class="page-shell">
+    <div class="page-heading"><span class="eyebrow">Your team</span><h1>Employees Directory</h1><p>Keep your people and roles organized.</p></div>
 
 
-  <div>
+  <div class="panel">
     <h2>Add New Employee</h2>
     <form action="/add-employee" method="POST">
       <input type="number" name="EmployeeID" placeholder="Employee ID" required>
       <input type="text" name="FirstName" placeholder="First Name" required>
       <input type="text" name="PhoneNumber" placeholder="Phone Number" required>
       <input type="text" name="Position" placeholder="Position" required>
-      <button type="submit">Add Employee</button>
+      <button class="button" type="submit">Add Employee</button>
     </form>
   </div>
 
 
-  <table>
+  <div class="table-wrap"><table>
     <thead>
       <tr>
         <th>Employee ID</th>
@@ -53,12 +36,12 @@
         <% }); %>
       <% } else { %>
         <tr>
-          <td colspan="4">No employees found.</td>
+          <td class="empty-state" colspan="4">No employees found.</td>
         </tr>
       <% } %>
     </tbody>
-  </table>
+  </table></div>
+  </main>
 
-</body>
-</html>
+<%- include('partials/footer') %>
     
