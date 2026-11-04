@@ -14,18 +14,33 @@
                 <span class="brand-mark">HH</span>
                 <span class="brand-name">Hardware Hub</span>
             </a>
-            <% if (activePage === 'dashboard') { %>
-                <ul class="nav-links">
-                    <li><a href="/dashboard" aria-current="page">Dashboard</a></li>
-                    <li><a href="/products">Products</a></li>
-                    <li><a href="/sales">Sales</a></li>
-                    <li><a href="/suppliers">Suppliers</a></li>
-                    <li><a href="/employees">Employees</a></li>
-                    <li><a href="/customers">Customers</a></li>
-                </ul>
-            <% } %>
+
+            <ul class="nav-links">
+                <% if (isLoggedIn) { %>
+                    <!-- Protected Owner / Admin Links (Only visible when logged in) -->
+                    <li><a href="/dashboard" aria-current="<%= activePage === 'dashboard' ? 'page' : '' %>">Dashboard</a></li>
+                    <li><a href="/products" aria-current="<%= activePage === 'products' ? 'page' : '' %>">Products</a></li>
+                    <li><a href="/sales" aria-current="<%= activePage === 'sales' ? 'page' : '' %>">Sales</a></li>
+                    <li><a href="/suppliers" aria-current="<%= activePage === 'suppliers' ? 'page' : '' %>">Suppliers</a></li>
+                    <li><a href="/employees" aria-current="<%= activePage === 'employees' ? 'page' : '' %>">Employees</a></li>
+                    <li><a href="/customers" aria-current="<%= activePage === 'customers' ? 'page' : '' %>">Customers</a></li>
+                <% } else { %>
+                    <!-- Public Customer Links (Only visible when logged out) -->
+                    <li><a href="/shop" aria-current="<%= activePage === 'shop' ? 'page' : '' %>">Shop</a></li>
+                    <li>
+                        <a href="/cart" aria-current="<%= activePage === 'cart' ? 'page' : '' %>">
+                            Cart (<%= cart ? cart.reduce((acc, item) => acc + item.quantity, 0) : 0 %>)
+                        </a>
+                    </li>
+                <% } %>
+            </ul>
+
             <div class="nav-actions">
-                <a class="nav-login" href="/login">Log in</a>
+                <% if (isLoggedIn) { %>
+                    <a class="nav-login" href="/logout" style="color: #d9534f;">Log out</a>
+                <% } else { %>
+                    <a class="nav-login" href="/login">Log in</a>
+                <% } %>
                 <a class="button button-small" href="/contact">Contact us</a>
             </div>
         </nav>

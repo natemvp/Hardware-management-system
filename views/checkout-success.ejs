@@ -1,0 +1,21 @@
+<%- include('partials/header', {
+    title: 'Order Successful | Hardware Hub',
+    description: 'Your order has been completed successfully.',
+    activePage: 'shop'
+}) %>
+
+<main class="page-shell">
+  <div class="panel" style="text-align: center; padding: 60px 20px; max-width: 600px; margin: 40px auto;">
+    <div style="font-size: 48px; color: #28a745; margin-bottom: 16px;">✓</div>
+    <h1 style="margin-bottom: 12px;">Order Placed Successfully!</h1>
+    <p style="color: #666; margin-bottom: 24px;">
+      <%= message || "Your transaction has been recorded and product inventory has been updated." %>
+    </p>
+    
+    <div style="display: flex; gap: 12px; justify-content: center;">
+      <a href="/shop" class="button">Continue Shopping</a>
+    </div>
+  </div>
+</main>
+
+<%- include('partials/footer') %>

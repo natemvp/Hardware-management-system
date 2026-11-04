@@ -1,0 +1,64 @@
+<%- include('partials/header', {
+    title: 'Shopping Cart | Hardware Hub',
+    description: 'Review items in your shopping cart.',
+    activePage: 'cart'
+}) %>
+
+<main class="page-shell">
+  <div class="page-heading">
+    <span class="eyebrow">Checkout</span>
+    <h1>Your Shopping Cart</h1>
+  </div>
+
+  <% if (cart && cart.length > 0) { %>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Unit Price</th>
+            <th>Quantity</th>
+            <th>Subtotal</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% cart.forEach(function(item) { %>
+            <tr>
+              <td><%= item.productname %></td>
+              <td>KSh <%= item.unitprice %></td>
+              <td><%= item.quantity %></td>
+              <td>KSh <%= item.unitprice * item.quantity %></td>
+              <td>
+                <form action="/remove-from-cart" method="POST" style="margin: 0;">
+                  <input type="hidden" name="product_id" value="<%= item.product_id %>">
+                  <button type="submit" style="background: none; border: none; color: #d9534f; cursor: pointer; font-weight: bold;">Remove</button>
+                </form>
+              </td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="margin-top: 24px; text-align: right;">
+      <h2>Total Amount: KSh <%= grandTotal %></h2>
+      <div style="margin-top: 16px; display: flex; gap: 12px; justify-content: flex-end; align-items: center;">
+        <a href="/shop" class="button button-secondary">Continue Shopping</a>
+        
+        <!-- HOOKED UP CHECKOUT FORM -->
+        <form action="/checkout" method="POST" style="margin: 0;">
+          <input type="hidden" name="customer_id" value="1">
+          <button type="submit" class="button">Complete Checkout</button>
+        </form>
+      </div>
+    </div>
+  <% } else { %>
+    <div class="panel" style="text-align: center; padding: 40px;">
+      <p>Your shopping cart is empty.</p>
+      <a href="/shop" class="button" style="margin-top: 12px; display: inline-block;">Browse Products</a>
+    </div>
+  <% } %>
+</main>
+
+<%- include('partials/footer') %>
